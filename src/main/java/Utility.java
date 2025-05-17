@@ -18,25 +18,25 @@ public class Utility {
     @BeforeClass
     public void setup() throws MalformedURLException {
 
-        service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\imaginative_freak\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js")).withIPAddress("127.0.0.1").usingPort(4723).build();
-        service.start();
+//        service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\imaginative_freak\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js")).withIPAddress("127.0.0.1").usingPort(4723).build();
+//        service.start();
 
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Android Emulator");
         options.setPlatformName("Android");
         options.setAutomationName("UiAutomator2");
         options.setPlatformVersion("16.0");
-        options.setApp(System.getProperty("user.dir")+"/apps/ApiDemos-debug.apk");
+        options.setApp(System.getProperty("user.dir")+"//apps//ApiDemos-debug.apk");
 
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"),options);
     }
 
     @AfterClass
     public void tearDown(){
         if(driver!=null){
             driver.quit();
-            service.stop();
+//            service.stop();
         }
     }
 }
